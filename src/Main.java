@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         VectorCompressor vc = new VectorCompressor();
         vc.compress(0, 2, 3);
-        vc.getAverageVector(vc.vectors);
+        vc.split(vc.getAverageVector(vc.vectors));
     }
 }
 

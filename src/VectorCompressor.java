@@ -1,3 +1,6 @@
+import static java.lang.Math.ceil;
+import static java.lang.Math.floor;
+
 public class VectorCompressor {
     int[][] image = {
             {1, 2, 3, 4, 5, 6},
@@ -47,11 +50,41 @@ public class VectorCompressor {
         for(int i = 0; i < averageVector.length; i++){
             for(int j = 0 ; j < averageVector[0].length; j++){
                 averageVector[i][j] /= vectors.length;
-                System.out.print(averageVector[i][j] + " ");
+//                System.out.print(averageVector[i][j] + " ");
+            }
+//            System.out.println();
+        }
+        return averageVector;
+    }
+
+    public void split(double[][] vector){
+        int[][] vector1 = new int[vector.length][vector[0].length];
+        int[][] vector2 = new int[vector.length][vector[0].length];
+        for(int i = 0; i < vector.length; i++){
+            for(int j = 0; j < vector[0].length; j++){
+                if(floor(vector[i][j]) != vector[i][j]){
+                    vector1[i][j] = (int) floor(vector[i][j]);
+                    vector2[i][j] = (int) ceil(vector[i][j]);
+                } else {
+                    vector1[i][j] = (int) vector[i][j] - 1;
+                    vector2[i][j] = (int) vector[i][j] + 1;
+                }
+            }
+        }
+
+        for(int i = 0; i < vector1.length; i++){
+            for(int j = 0; j < vector1[0].length; j++){
+                System.out.print(vector1[i][j] + " ");
             }
             System.out.println();
         }
-        return averageVector;
+        System.out.println();
+        for(int i = 0; i < vector2.length; i++){
+            for(int j = 0; j < vector2[0].length; j++){
+                System.out.print(vector2[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public void read(String filePath){
