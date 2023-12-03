@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class VectorCompressor {
     int[][] image = {
             {1, 2, 3, 4, 5, 6},
@@ -26,17 +24,35 @@ public class VectorCompressor {
             }
         }
 
-        for(int k = 0; k < vectors.length; k++){
-            for(int i = 0; i < vectorLength; i++){
-                for (int j = 0; j < vectorWidth; j++){
-                    System.out.print(vectors[k][i][j] + " ");
+//        for(int k = 0; k < vectors.length; k++){
+//            for(int i = 0; i < vectorLength; i++){
+//                for (int j = 0; j < vectorWidth; j++){
+//                    System.out.print(vectors[k][i][j] + " ");
+//                }
+//                System.out.println();
+//            }
+//            System.out.println();
+//        }
+    }
+
+    public double[][] getAverageVector(int[][][] vectors){
+        double[][] averageVector = new double[vectors[0].length][vectors[0][0].length];
+        for(int i = 0; i < vectors[0].length; i++){
+            for(int j = 0; j < vectors[0][0].length; j++){
+                for(int k = 0; k < vectors.length; k++){
+                    averageVector[i][j] += vectors[k][i][j];
                 }
-                System.out.println();
+            }
+        }
+        for(int i = 0; i < averageVector.length; i++){
+            for(int j = 0 ; j < averageVector[0].length; j++){
+                averageVector[i][j] /= vectors.length;
+                System.out.print(averageVector[i][j] + " ");
             }
             System.out.println();
         }
+        return averageVector;
     }
-
 
     public void read(String filePath){
 

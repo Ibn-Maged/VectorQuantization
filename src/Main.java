@@ -4,7 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         VectorCompressor vc = new VectorCompressor();
-        vc.compress(0, 3, 2);
+        vc.compress(0, 2, 3);
+        vc.getAverageVector(vc.vectors);
     }
 }
 
