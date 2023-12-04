@@ -98,8 +98,8 @@ public class VectorCompressor {
                 for(int i = 0; i < vectors[0].length; i++){
                     for(int j = 0; j < vectors[0][0].length; j++){
                         for(int l = 0; l < codebookSize; l++){
-                            distances[k] += abs(vectors[k][i][j] - codebook.get(l)[i][j]);
-                            distances[k] += abs(vectors[k][i][j] - codebook.get(l)[i][j]);
+                            distances[l] += abs(vectors[k][i][j] - codebook.get(l)[i][j]);
+                            distances[l] += abs(vectors[k][i][j] - codebook.get(l)[i][j]);
                         }
                     }
                 }
