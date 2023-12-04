@@ -3,9 +3,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        String imagePath = "C:\\Users\\Ibn-Maged\\Desktop\\VectorQuantization\\src\\B2DBy.jpg";
         VectorCompressor vc = new VectorCompressor();
-        vc.compress(0, 2, 3);
-        vc.split(vc.getAverageVector(vc.vectors));
+        vc.compress(4, 2, 2, imagePath);
+//        vc.split(vc.getAverageVector(vc.vectors));
     }
 }
 
